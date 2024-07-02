@@ -1,21 +1,21 @@
-import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
 import HomeIcon from '@mui/icons-material/Home';
-import BorderStyleIcon from '@mui/icons-material/BorderStyle';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import SettingsIcon from '@mui/icons-material/Settings';
 const routes = [
     {
         path: "/",
-        content: "Home",
+        content: "Asosiy",
         icon: <HomeIcon/>
     },
     {
-        path: "/service",
-        content: "Service",
-        icon: <LocalPostOfficeIcon/>
+        path: "/orders",
+        content: "Buyurtmalar",
+        icon: <ShoppingBasketIcon/>
     },
     {
-        path: "/orders",
-        content: "Orders",
-        icon: <BorderStyleIcon/>
+        path: "/xizmatlar",
+        content: "Xizmatlar",
+        icon: <SettingsIcon/>
     },
 ]
 

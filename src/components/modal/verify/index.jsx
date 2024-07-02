@@ -37,6 +37,7 @@ export default function BasicModal({ open, setOpen, email, closeModal }) {
       if (timer) clearInterval(timer);
     };
   }, [open]);
+
   useEffect(() => {
     if (secondsLeft === 0) {
       handleClose();
@@ -51,7 +52,6 @@ export default function BasicModal({ open, setOpen, email, closeModal }) {
     const payload = { code, email };
     try {
       const response = await auth.auth_verify(payload);
-      console.log(response);
       if (response.status === 201) {
         Notification({
           title: "Successfully created",

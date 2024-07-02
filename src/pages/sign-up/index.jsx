@@ -1,9 +1,4 @@
-import {
-  Button,
-  IconButton,
-  InputAdornment,
-  TextField,
-} from "@mui/material";
+import { Button, IconButton, InputAdornment, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
@@ -12,7 +7,7 @@ import { Notification } from "../../utils/index";
 import { auth } from "../../service/";
 import { VerifyModal } from "../../components/modal";
 import { useMask } from "@react-input/mask";
-import {signUpValidationSchema} from "../../utils/validation"
+import { signUpValidationSchema } from "../../utils/validation";
 
 const Index = () => {
   const initialValues = {
@@ -21,14 +16,17 @@ const Index = () => {
     password: "",
     phone_number: "",
   };
+
   const inputRef = useMask({
     mask: "+998 (__) ___-__-__",
     replacement: { _: /\d/ },
   });
+
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
   const handleSubmit = async (values) => {
     try {
       const phone_number = values.phone_number.replace(/\D/g, "");
@@ -51,6 +49,7 @@ const Index = () => {
       });
     }
   };
+
   useEffect(() => {
     if (localStorage.getItem("access_token")) {
       navigate("/");
@@ -70,7 +69,11 @@ const Index = () => {
           Register
         </h1>
         <div className="max-w-[600px]">
-          <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={signUpValidationSchema}>
+          <Formik
+            initialValues={initialValues}
+            onSubmit={handleSubmit}
+            validationSchema={signUpValidationSchema}
+          >
             {({ isSubmitting }) => (
               <Form>
                 <Field
@@ -158,14 +161,8 @@ const Index = () => {
                   disabled={isSubmitting}
                   sx={{ marginBottom: "8px" }}
                 >
-                  {isSubmitting ? "Yuborilmoqda..." : "Sign Up"}
+                  {isSubmitting ? "In Progressing..." : "Sign Up"}
                 </Button>
-                <span
-                  onClick={() => navigate("/sign-in")}
-                  className=" text-blue-300 cursor-pointer hover:text-blue-500"
-                >
-                  Already have an account?
-                </span>
               </Form>
             )}
           </Formik>
